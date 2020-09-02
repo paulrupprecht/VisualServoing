@@ -45,13 +45,13 @@ This script captures the actual pose of the endeffector in world coordinates (ba
 
 Main Goal: Realize a position based robot control by processing visual data and planning a trajectory based on the deviation between target pose and actual pose between camera and marker.
 
-The PBVS controller is designed as a P-Controller (proportional). The main logic is implemented in the listener() function and executed in a Python main function. Firstly, the actual camera pose (base cs) and the transformed pose from marker to camera (aruco_detect ) are subscribed and stored in variables. Secondly, in case a marker was detected, the desired rotation and translation are calculated seperately.
+The PBVS controller is designed as a P-Controller (proportional). The main logic is implemented in the listener() function and executed in a Python main function. Firstly, the actual camera pose (base cs) and the transformed pose from marker to camera (aruco_detect) are subscribed and stored in variables. Secondly, in case a marker was detected, the desired rotation and translation are calculated seperately.
 
 Rotation: The relative rotation from camera to marker gets transformed from the aruco coordinate system to the endeffector (camera) coordinate system (deviation). If the rotation between camera and marker exceeds a defined tolerance (1 degree per axis), a new target rotation is calculated (base coordinate system). 
 
 Translation: In parallel the translatory deviation from camera to marker is calculated and multiplied with the Kp-factor (P-controller). In order to transform the identified deviation to the base coordinate system, the transformation matrix is used. 
 
-Finally, the rotation and the translation results are combined and published as a new message. Based on that message, MoveIt will handle the trajectory planning. 
+Finally, the rotation and the translation results are combined and published as a new message. Based on that message, MoveIt will handle the trajectory planning. However, if ht new target pose does not deviate from the target pose from the last control cycle, MoveIt will not receive any new information and fulfill the last relevant pose. 
 
 Caution: An accurate description of how this script is executed can be found within the script itself (comments).
 
@@ -59,21 +59,21 @@ Caution: An accurate description of how this script is executed can be found wit
 
 tbd
 
-##### reset.py
+##### start_position.py
 
 Main Goal: Resetting camera and marker into a default pose. All tests can be carried out by starting them from the default pose.
 
-##### marker_rectangle.py
+##### rectangle.py
 
-Main Goal: 
+Main Goal: Experiment trajectory of marker. Both controllers should follow the marker until it stops. 
 
-##### marcer_circle.py
+##### jump.py
 
-Main Goal:
+Main Goal:  Further experiment, where the marker jumps from one pose to another. Both controllers will realize a corresponding pose and ensure that the given offset is met. 
 
 ##### topic_logger.py
 
-Main Goal: 
+Main Goal: This is a support script that subscribes relevant data. The script was used for logging information in order to evaluete the controllers. 
 
 ## Software Requirements
 
