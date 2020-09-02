@@ -75,8 +75,36 @@ Main Goal:
 
 Main Goal: 
 
+## Software Requirements
+ UrSim
+ Gazebo
+ Ubuntu
+ ROS 
+ MoveIt
+ 
+## Launch Project
 
-
+1. cmd roscore 
+2. cmd bash ursim-3.9.1.64192/start-ursim.sh 
+3. cmd bash ursim-3.9.1.64192/starturcontrol.sh
+4. UrSim: 
+- Program Robot
+- Load Program and open (external control)
+- edit IP address 
+5. cmd roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=...
+6. UrSim: press Play (Robot ready to receive control signals)
+7. cmd roslaunch ur5_moveit_config move_group.launch
+8. cmd rosrun gazebo_ros gazebo catkin_ws/src/custom_pkg/myWorld.sdf
+9. cmd rosrun custom_pkg ursim_gazebo.py
+10. cmd rosrun image_view image_view image:=/stereo/left/image_color
+11. cmd roslaunch custom_pkg my_aruco_detect.launch
+12. cmd rosrun custom_pkg start_position.py
+13. cmd rosrun custom_pkg pbvs.py
+    cmd rosrun custom_pkg ibvs.py
+14. cmd rosrun custom_pkg rectangle.py
+    cmd rosrun custom_pkg jump.py
+    
+ 
 
 
 
