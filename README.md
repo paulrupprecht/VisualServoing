@@ -9,17 +9,18 @@ The catkin_ws (workspace) contains 3 main folders: build, devel and src. The fol
 
 #### build
 
+Default folder containing UR MoveIt configuration files.
+
 #### devel
+
+Default folder. 
 
 #### src
 
 The main development of the robot control can be found in the src folder.
 
 The src folder, which contains both, third-party scripts and custom scripts is structured as follows:
-- aruco_detect                    --> aruco marker detection logik, third-party computer vision scripts
-- fiducial_msgs                   --> header files for fiducial messages 
-- fiducials                       -->
-- fiducial_slam                   -->
+- aruco_detect                    --> aruco marker detection logic, third-party computer vision scripts
 - fmauch_universal_robot          --> MoveIt configuration and UR driver files
 - gazebo_ros_pkgs                 --> Gazebo-ROS connection files
 - Universal_Robots_ROS_Driver     --> ROS Driver
@@ -45,7 +46,7 @@ This script captures the actual pose of the endeffector in world coordinates (ba
 
 Main Goal: Realize a position based robot control by processing visual data and planning a trajectory based on the deviation between target pose and actual pose between camera and marker.
 
-The PBVS controller is designed as a P-Controller (proportional). The main logic is implemented in the listener() function and executed in a Python main function. Firstly, the actual camera pose (base cs) and the transformed pose from marker to camera (aruco_detect) are subscribed and stored in variables. Secondly, in case a marker was detected, the desired rotation and translation are calculated seperately.
+The PBVS controller is designed as a P-Controller (proportional). The main logic is implemented in the listener() function and executed in a Python main function. Firstly, the actual camera pose (base cs) and the relative pose from marker to camera (aruco_detect) are subscribed and stored in variables. Secondly, in case a marker was detected, the desired rotation and translation are calculated seperately.
 
 Rotation: The relative rotation from camera to marker gets transformed from the aruco coordinate system to the endeffector (camera) coordinate system (deviation). If the rotation between camera and marker exceeds a defined tolerance (1 degree per axis), a new target rotation is calculated (base coordinate system). 
 
@@ -57,7 +58,13 @@ Caution: An accurate description of how this script is executed can be found wit
 
 ##### ibvs_controller.py
 
-tbd
+Main Goal: Realize a image based robot control by processing visual data and calculating required joint velocities.
+
+Firstly, all relevant data are subscribed, namely, the pixel coordinates of the acquired 2D image (/fiducia_vertices), the current robot joint states (/joint_states) as well as pose of the marker (/fiducial_transforms).
+
+As a next step, the distances from the marker corners to the camera are calculated (z-axis). Based on that, the necessary joint velocities are calculated in order to ensure a correct camera pose. To determine the velocities, the deviations of the marker corners in the 2D image plane are calculated. Using the image Jacobian this deviation is transformed into required camera velocities. However, these velocities have to be transformed from camera coordinate to base coordinate system. 
+
+Using the robot Jacobian, joint velocities can be extracted from the camera velocity. For each joint, the new joint goal can be published to MoveIt using a mathematical integration of the velocities. 
 
 ##### start_position.py
 
