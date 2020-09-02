@@ -76,10 +76,15 @@ Main Goal:
 Main Goal: 
 
 ## Software Requirements
- UrSim
- Gazebo
- Ubuntu
- ROS 
+
+ UrSim 3.9.1 
+ 
+ Gazebo 9.0.0
+ 
+ Ubuntu 18.04.5 LTS
+ 
+ ROS Melodic
+ 
  MoveIt
  
 ## Launch Project
