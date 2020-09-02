@@ -84,25 +84,46 @@ Main Goal:
  
 ## Launch Project
 
+Start ROS Master:
 1. cmd roscore 
+
+Launch UrSim:
 2. cmd bash ursim-3.9.1.64192/start-ursim.sh 
 3. cmd bash ursim-3.9.1.64192/starturcontrol.sh
 4. UrSim: 
 - Program Robot
 - Load Program and open (external control)
 - edit IP address 
+
+Launch UR Robot Driver:
 5. cmd roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=...
 6. UrSim: press Play (Robot ready to receive control signals)
+
+Launch MoveIt:
 7. cmd roslaunch ur5_moveit_config move_group.launch
+
+Launch Gazebo and configured simulation environment:
 8. cmd rosrun gazebo_ros gazebo catkin_ws/src/custom_pkg/myWorld.sdf
+
+Establish connection between UrSim and Gazebo:
 9. cmd rosrun custom_pkg ursim_gazebo.py
+
+Launch camera image:
 10. cmd rosrun image_view image_view image:=/stereo/left/image_color
+
+Launch aruco_detect framework (feature extraction and marker detection:
 11. cmd roslaunch custom_pkg my_aruco_detect.launch
+
+Move endeffector/camera and marker into start pose:
 12. cmd rosrun custom_pkg start_position.py
-13. cmd rosrun custom_pkg pbvs.py
-    cmd rosrun custom_pkg ibvs.py
-14. cmd rosrun custom_pkg rectangle.py
-    cmd rosrun custom_pkg jump.py
+
+Launch visual servoing controller (either image based or position based:
+13.1. cmd rosrun custom_pkg pbvs.py
+13.2. cmd rosrun custom_pkg ibvs.py
+
+Start experiment (either rectangle trajectory or marker jump):
+14.1. cmd rosrun custom_pkg rectangle.py
+14.2. cmd rosrun custom_pkg jump.py
     
  
 
