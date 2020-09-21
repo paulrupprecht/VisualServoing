@@ -1,0 +1,27 @@
+\subsubsection usage Usage
+\verbatim
+<node name="aruco_detect" pkg="aruco_detect" type="aruco_detect">
+  <param name="adaptiveThreshConstant" type="double" value="7.0" />
+  <param name="adaptiveThreshWinSizeMin" type="int" value="3" />
+  <param name="adaptiveThreshWinSizeMax" type="int" value="53" />
+  <param name="adaptiveThreshWinSizeStep" type="int" value="4" />
+  <param name="cornerRefinementMaxIterations" type="int" value="30" />
+  <param name="cornerRefinementMinAccuracy" type="double" value="0.01" />
+  <param name="cornerRefinementWinSize" type="int" value="5" />
+  <param name="doCornerRefinement" type="bool" value="True" />
+  <param name="cornerRefinementSubpix" type="bool" value="True" />
+  <param name="errorCorrectionRate" type="double" value="0.6" />
+  <param name="minCornerDistanceRate" type="double" value="0.05" />
+  <param name="markerBorderBits" type="int" value="1" />
+  <param name="maxErroneousBitsInBorderRate" type="double" value="0.04" />
+  <param name="minDistanceToBorder" type="int" value="3" />
+  <param name="minMarkerDistanceRate" type="double" value="0.1" />
+  <param name="minMarkerPerimeterRate" type="double" value="0.03" />
+  <param name="maxMarkerPerimeterRate" type="double" value="4.0" />
+  <param name="minOtsuStdDev" type="double" value="5.0" />
+  <param name="perspectiveRemoveIgnoredMarginPerCell" type="double" value="0.13" />
+  <param name="perspectiveRemovePixelPerCell" type="int" value="8" />
+  <param name="polygonalApproxAccuracyRate" type="double" value="0.01" />
+</node>
+\endverbatim
+

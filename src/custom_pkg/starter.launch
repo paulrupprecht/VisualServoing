@@ -1,0 +1,9 @@
+<launch>	
+  <node name="aruco_detect" pkg="aruco_detect" type="aruco_detect" output="screen">
+    <param name="image_transport" value="raw"/>
+    <param name="dictionary" value="7"/>
+  </node>
+</launch>
+
+
+

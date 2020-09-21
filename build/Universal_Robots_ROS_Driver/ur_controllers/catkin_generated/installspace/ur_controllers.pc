@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/install
+
+Name: ur_controllers
+Description: Description of ur_controllers
+Version: 0.0.2
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lur_controllers
+Requires: controller_interface hardware_interface joint_trajectory_controller pluginlib realtime_tools std_msgs

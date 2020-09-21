@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libur10_kin.so -o /home/studi/catkin_ws/devel/lib/libur10_kin.so CMakeFiles/ur10_kin.dir/src/ur_kin.cpp.o 

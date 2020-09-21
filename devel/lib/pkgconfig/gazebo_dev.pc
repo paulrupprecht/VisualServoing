@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: gazebo_dev
+Description: Description of gazebo_dev
+Version: 2.5.19
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

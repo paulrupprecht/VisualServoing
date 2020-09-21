@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: ur3_moveit_config
+Description: Description of ur3_moveit_config
+Version: 1.2.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,28 @@
+
+(cl:in-package :asdf)
+
+(defsystem "ur_dashboard_msgs-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :ur_dashboard_msgs-msg
+)
+  :components ((:file "_package")
+    (:file "AddToLog" :depends-on ("_package_AddToLog"))
+    (:file "_package_AddToLog" :depends-on ("_package"))
+    (:file "GetLoadedProgram" :depends-on ("_package_GetLoadedProgram"))
+    (:file "_package_GetLoadedProgram" :depends-on ("_package"))
+    (:file "GetProgramState" :depends-on ("_package_GetProgramState"))
+    (:file "_package_GetProgramState" :depends-on ("_package"))
+    (:file "GetRobotMode" :depends-on ("_package_GetRobotMode"))
+    (:file "_package_GetRobotMode" :depends-on ("_package"))
+    (:file "GetSafetyMode" :depends-on ("_package_GetSafetyMode"))
+    (:file "_package_GetSafetyMode" :depends-on ("_package"))
+    (:file "IsProgramRunning" :depends-on ("_package_IsProgramRunning"))
+    (:file "_package_IsProgramRunning" :depends-on ("_package"))
+    (:file "IsProgramSaved" :depends-on ("_package_IsProgramSaved"))
+    (:file "_package_IsProgramSaved" :depends-on ("_package"))
+    (:file "Load" :depends-on ("_package_Load"))
+    (:file "_package_Load" :depends-on ("_package"))
+    (:file "Popup" :depends-on ("_package_Popup"))
+    (:file "_package_Popup" :depends-on ("_package"))
+    (:file "RawRequest" :depends-on ("_package_RawRequest"))
+    (:file "_package_RawRequest" :depends-on ("_package"))
+  ))

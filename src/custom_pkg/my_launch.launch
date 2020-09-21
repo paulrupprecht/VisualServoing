@@ -1,0 +1,24 @@
+<!-- Run the aruco_detect node -->
+<launch>
+  <!-- namespace for camera input -->
+  <!--<arg name="camera" default="/stereo/left"/> -->
+
+  <arg name="robot_ip" default="141.23.162.63"/>
+  <arg name="world_path" default="$(find custom_pkg)/myWorld.sdf"/>
+
+  <node name="ursim_gazebo" pkg="custom_pkg" type="ursim_gazebo.py"/>
+
+  <include file="$(find custom_pkg)/my_ur5_bringup.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+  </include>
+
+  <include file="$(find custom_pkg)/my_move_group.launch"/>
+  
+  <include file="$(find custom_pkg)/my_aruco_detect.launch"/>
+  
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(arg world_path)"/>
+
+  <!--<node name="aruco_view" pkg="image_view" type="image_view">
+    <remap from ="image" to="/fiducial_images"/>
+  </node> -->
+</launch>

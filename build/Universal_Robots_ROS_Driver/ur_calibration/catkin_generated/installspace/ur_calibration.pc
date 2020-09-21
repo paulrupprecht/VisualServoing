@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/install
+
+Name: ur_calibration
+Description: Description of ur_calibration
+Version: 0.0.2
+Cflags: -I/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../include
+Libs: -L${prefix}/lib /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.5.2
+Requires: roscpp ur_robot_driver

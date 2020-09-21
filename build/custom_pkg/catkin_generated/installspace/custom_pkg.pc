@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/install
+
+Name: custom_pkg
+Description: Description of custom_pkg
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

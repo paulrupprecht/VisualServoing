@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/install
+
+Name: ur_bringup
+Description: Description of ur_bringup
+Version: 1.2.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

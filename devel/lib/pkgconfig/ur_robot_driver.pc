@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: ur_robot_driver
+Description: Description of ur_robot_driver
+Version: 0.0.3
+Cflags: -I/home/studi/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include -I/usr/include
+Libs: -L${prefix}/lib -lur_robot_driver
+Requires: actionlib control_msgs controller_manager geometry_msgs hardware_interface pluginlib roscpp sensor_msgs tf tf2_geometry_msgs tf2_msgs trajectory_msgs ur_controllers ur_dashboard_msgs ur_msgs std_srvs

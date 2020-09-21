@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: ur_kinematics
+Description: Description of ur_kinematics
+Version: 1.2.5
+Cflags: -I/home/studi/catkin_ws/src/fmauch_universal_robot/ur_kinematics/include -I/usr/include
+Libs: -L${prefix}/lib -lur3_kin -lur5_kin -lur10_kin -lur3_moveit_plugin -lur5_moveit_plugin -lur10_moveit_plugin /usr/lib/x86_64-linux-gnu/libboost_system.so
+Requires: roscpp geometry_msgs moveit_core moveit_kinematics moveit_ros_planning pluginlib tf_conversions

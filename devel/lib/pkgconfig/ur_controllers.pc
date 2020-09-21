@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: ur_controllers
+Description: Description of ur_controllers
+Version: 0.0.2
+Cflags: -I/home/studi/catkin_ws/src/Universal_Robots_ROS_Driver/ur_controllers/include
+Libs: -L${prefix}/lib -lur_controllers
+Requires: controller_interface hardware_interface joint_trajectory_controller pluginlib realtime_tools std_msgs

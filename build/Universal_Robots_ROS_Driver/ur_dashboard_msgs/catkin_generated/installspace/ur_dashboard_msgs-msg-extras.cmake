@@ -1,0 +1,2 @@
+set(ur_dashboard_msgs_MESSAGE_FILES "msg/ProgramState.msg;msg/RobotMode.msg;msg/SafetyMode.msg;msg/SetModeAction.msg;msg/SetModeActionGoal.msg;msg/SetModeActionResult.msg;msg/SetModeActionFeedback.msg;msg/SetModeGoal.msg;msg/SetModeResult.msg;msg/SetModeFeedback.msg")
+set(ur_dashboard_msgs_SERVICE_FILES "srv/AddToLog.srv;srv/GetLoadedProgram.srv;srv/GetProgramState.srv;srv/GetRobotMode.srv;srv/GetSafetyMode.srv;srv/IsProgramRunning.srv;srv/IsProgramSaved.srv;srv/Load.srv;srv/Popup.srv;srv/RawRequest.srv")

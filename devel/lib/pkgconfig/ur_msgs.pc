@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/devel
+
+Name: ur_msgs
+Description: Description of ur_msgs
+Version: 1.2.5
+Cflags: -I/home/studi/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs

@@ -1,0 +1,8 @@
+prefix=/home/studi/catkin_ws/install
+
+Name: controller_stopper
+Description: Description of controller_stopper
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: controller_manager_msgs roscpp std_msgs

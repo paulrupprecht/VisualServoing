@@ -1,0 +1,2 @@
+set(fiducial_msgs_MESSAGE_FILES "/home/studi/catkin_ws/src/fiducial_msgs/msg/Fiducial.msg;/home/studi/catkin_ws/src/fiducial_msgs/msg/FiducialArray.msg;/home/studi/catkin_ws/src/fiducial_msgs/msg/FiducialTransform.msg;/home/studi/catkin_ws/src/fiducial_msgs/msg/FiducialTransformArray.msg;/home/studi/catkin_ws/src/fiducial_msgs/msg/FiducialMapEntry.msg;/home/studi/catkin_ws/src/fiducial_msgs/msg/FiducialMapEntryArray.msg")
+set(fiducial_msgs_SERVICE_FILES "/home/studi/catkin_ws/src/fiducial_msgs/srv/InitializeMap.srv")
