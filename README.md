@@ -3,38 +3,7 @@ UR5 Control based on two different VS concepts: PBVS, IBVS.
 The project goal is to evaluate both concepts for several given tasks. Generally, the task is defined as following an aruco marker and ensure a robot pose which is defined with a static offset. Based on the generated images visual information will be used to feed both control strategies. 
 Whereas the IBVS concept solely uses image information in order to calculate the control deviation, the position based control concept transforms the captured information (image information) into a marker pose relatively from camera to the marker. Accordingly, the calculated pose is used to calculate the deviation to a specific target pose.  
 
-## Folder Structure
-
-The catkin_ws (workspace) contains 3 main folders: build, devel and src. The folder content will be described briefly next.
-
-#### build
-
-Default folder containing UR MoveIt configuration files.
-
-#### devel
-
-Default folder. 
-
-#### src
-
-The main development of the robot control can be found in the src folder.
-
-The src folder, which contains both, third-party scripts and custom scripts is structured as follows:
-- aruco_detect                    --> aruco marker detection logic, third-party computer vision scripts
-- fmauch_universal_robot          --> MoveIt configuration and UR driver files
-- gazebo_ros_pkgs                 --> Gazebo-ROS connection files
-- Universal_Robots_ROS_Driver     --> ROS Driver
-- custom_pkg                      --> Logic files for controlling UR5 as well as evaluation files (target trajectories to be evaluated for report)
-
-The custom_pkg folder contains all relevant files that handle the visual servoing control logic. Programming language used is Python.
-Within the custom_pkg folder multiple launch files can be found, such as:
-- my_aruco_detect.launch
-- my_move_group.launch
-- my_ur5_bringup.launch
-
-Further, a .sdf file is included in the custom_pkg folder. This file defines the simulation environment for Gazebo. The environmant contains both, the camera as endeffector as well as the aruco marker, which is the object to be detected within the control loop.
-
-Within the custom_pkg folder another folder called src contains all the relevant control and evaluation .py files. 
+## File Structure
 
 ###### ursim_gazebo.py
 
@@ -81,67 +50,4 @@ Main Goal:  Further experiment, where the marker jumps from one pose to another.
 ##### topic_logger.py
 
 Main Goal: This is a support script that subscribes relevant data. The script was used for logging information in order to evaluete the controllers. 
-
-## Software Requirements
-
- UrSim 3.9.1 
- 
- Gazebo 9.0.0
- 
- Ubuntu 18.04.5 LTS
- 
- ROS Melodic
- 
- MoveIt
- 
-## Launch Project
-
-#### Start ROS Master:
-1. cmd roscore 
-
-#### Launch UrSim:
-2. cmd bash ursim-3.9.1.64192/start-ursim.sh 
-3. cmd bash ursim-3.9.1.64192/starturcontrol.sh
-4. UrSim: 
-- Program Robot
-- Load Program and open (external control)
-- edit IP address 
-
-#### Launch UR Robot Driver:
-5. cmd roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=...
-6. UrSim: press Play (Robot ready to receive control signals)
-
-#### Launch MoveIt:
-7. cmd roslaunch ur5_moveit_config move_group.launch
-
-#### Launch Gazebo and configured simulation environment:
-8. cmd rosrun gazebo_ros gazebo catkin_ws/src/custom_pkg/myWorld.sdf
-
-#### Establish connection between UrSim and Gazebo:
-9. cmd rosrun custom_pkg ursim_gazebo.py
-
-#### Launch camera image:
-10. cmd rosrun image_view image_view image:=/stereo/left/image_color
-
-#### Launch aruco_detect framework (feature extraction and marker detection):
-11. cmd roslaunch custom_pkg my_aruco_detect.launch
-
-#### Move endeffector/camera and marker into start pose:
-12. cmd rosrun custom_pkg start_position.py
-
-#### Launch visual servoing controller (either image based or position based):
-13.1. cmd rosrun custom_pkg pbvs.py
-13.2. cmd rosrun custom_pkg ibvs.py
-
-#### Start experiment (either rectangle trajectory or marker jump):
-14.1. cmd rosrun custom_pkg rectangle.py
-14.2. cmd rosrun custom_pkg jump.py
-    
- 
-
-
-
-
-
-
 
