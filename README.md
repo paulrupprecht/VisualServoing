@@ -3,7 +3,7 @@ UR5 Control based on two different VS concepts: PBVS, IBVS.
 The project goal is to evaluate both concepts for several given tasks. Generally, the task is defined as following an aruco marker and ensure a robot pose which is defined with a static offset. Based on the generated images visual information will be used to feed both control strategies. 
 Whereas the IBVS concept solely uses image information in order to calculate the control deviation, the position based control concept transforms the captured information (image information) into a marker pose relatively from camera to the marker. Accordingly, the calculated pose is used to calculate the deviation to a specific target pose.  
 
-## File Structure
+## Custom Files 
 
 ###### ursim_gazebo.py
 
